@@ -12,9 +12,10 @@ public class TicketBookingSystem extends Thread {
 
     public BookingResult attemptBooking(String user) {
         try {
-                semaphore.acquire();
+            semaphore.acquire();
             if (totalSeats > 0) {
-                BookingResult bookingResult = new BookingResult(user, true, "Booking successful.");
+                BookingResult bookingResult =
+                        new BookingResult(user, true, "Booking successful.");
                 totalSeats = totalSeats - 1;
                 return bookingResult;
             }
